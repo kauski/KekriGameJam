@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c2hmpu38kxoqa"]
+
+[ext_resource type="Shader" uid="uid://c66io8fd6ro7j" path="res://Art/3Dmodels/VFX/firepart.tres" id="1_7m8lx"]
+[ext_resource type="Texture2D" uid="uid://dld2icsoyvdgc" path="res://Art/3Dmodels/VFX/Voronoi/Voronoi 5 - 128x128.png" id="2_slav8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7m8lx")
+shader_parameter/Alphaclip = 0.33
+shader_parameter/Texture2DParameter = ExtResource("2_slav8")

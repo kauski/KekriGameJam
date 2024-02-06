@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c61c7f04h7q7o"
+path.s3tc="res://.godot/imported/prop_kuksa_BC_kuksa.png-2f15e0cae98c3dc8227b0bb683e1f25d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Art/3Dmodels/Kuksa/prop_kuksa_BC_kuksa.png"
+dest_files=["res://.godot/imported/prop_kuksa_BC_kuksa.png-2f15e0cae98c3dc8227b0bb683e1f25d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

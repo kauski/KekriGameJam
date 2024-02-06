@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvw4tucwkpld8"
+path="res://.godot/imported/Classical Relaxed main.wav-cdee81435c9f3dba48fd7ab0460c0ae2.sample"
+
+[deps]
+
+source_file="res://Classical Relaxed main.wav"
+dest_files=["res://.godot/imported/Classical Relaxed main.wav-cdee81435c9f3dba48fd7ab0460c0ae2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

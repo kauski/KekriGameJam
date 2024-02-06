@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhtdbel7kokuq"]
+
+[ext_resource type="Material" uid="uid://c2hmpu38kxoqa" path="res://Art/3Dmodels/VFX/Fire.tres" id="1_s4l8k"]
+[ext_resource type="Texture2D" uid="uid://dbsh84gqdhylx" path="res://Art/3Dmodels/VFX/ember.png" id="2_nmonk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fw364"]
+
+[sub_resource type="Curve" id="Curve_s30mq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.19186, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g177l"]
+resource_local_to_scene = true
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ualnt"]
+transparency = 1
+albedo_color = Color(1, 0.0901961, 0, 1)
+albedo_texture = ExtResource("2_nmonk")
+emission_enabled = true
+emission = Color(0.835294, 0.498039, 0, 1)
+emission_energy_multiplier = 10.55
+emission_operator = 1
+emission_texture = ExtResource("2_nmonk")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 1.0
+
+[sub_resource type="Gradient" id="Gradient_8yyie"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hfwhn"]
+gradient = SubResource("Gradient_8yyie")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mnnyc"]
+emission_shape = 1
+emission_sphere_radius = 0.75
+direction = Vector3(0, 1, 0)
+spread = 45.27
+gravity = Vector3(0, 8.535, 0)
+angular_velocity_max = 1.0
+linear_accel_max = 10.53
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+damping_max = 0.1
+scale_min = 0.05
+scale_max = 0.15
+color = Color(0.72549, 0.462745, 0.129412, 1)
+color_ramp = SubResource("GradientTexture1D_hfwhn")
+turbulence_enabled = true
+turbulence_noise_strength = 3.34
+turbulence_noise_scale = 3.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_xk7c6"]
+
+[node name="FireVfx" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = ExtResource("1_s4l8k")
+lifetime = 0.78
+randomness = 1.0
+lifetime_randomness = 0.3
+mesh = SubResource("QuadMesh_fw364")
+emission_shape = 4
+emission_points = PackedVector3Array()
+spread = 72.85
+gravity = Vector3(0, 6, 0)
+linear_accel_max = 1.0
+radial_accel_max = 2.0
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_min = 0.8
+scale_amount_curve = SubResource("Curve_s30mq")
+color_ramp = SubResource("Gradient_g177l")
+hue_variation_min = -0.04
+hue_variation_max = 0.17
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ualnt")
+cast_shadow = 0
+amount = 16
+local_coords = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_mnnyc")
+draw_pass_1 = SubResource("QuadMesh_xk7c6")

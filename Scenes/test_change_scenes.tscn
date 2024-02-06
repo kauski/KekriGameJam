@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnre8knj6pknh"]
+
+[ext_resource type="PackedScene" uid="uid://duluyeult06ec" path="res://Art/UI/transitions.tscn" id="1_mywr0"]
+[ext_resource type="PackedScene" uid="uid://b4ymovnvl056p" path="res://Scenes/change_scene_test_2.tscn" id="2_t6mm2"]
+
+[node name="TestChangeScenes" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitions" parent="." instance=ExtResource("1_mywr0")]
+offset_left = -2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 3.0
+scene_switch_anim = "Fade_out"
+scene_to_load = ExtResource("2_t6mm2")

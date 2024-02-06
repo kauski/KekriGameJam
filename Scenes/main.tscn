@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8q487e2yutq3"]
+
+[ext_resource type="PackedScene" uid="uid://ba602ej28ummo" path="res://Scenes/mainmenuTyemuEdition.tscn" id="1_2t60c"]
+[ext_resource type="PackedScene" uid="uid://cyrga4wxpnjbm" path="res://Art/UI/transitions.tscn" id="2_d8q76"]
+[ext_resource type="PackedScene" uid="uid://vgfqjytcbjcv" path="res://Scenes/Level1.tscn" id="3_3sptt"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Transitions" parent="." instance=ExtResource("2_d8q76")]
+offset_left = 221.0
+offset_top = 54.0
+offset_right = 221.0
+offset_bottom = 54.0
+scene_to_load = ExtResource("3_3sptt")
+
+[node name="TextureRect" parent="Transitions" index="0"]
+scale = Vector2(25, 25)
+
+[node name="mainmenu" parent="." instance=ExtResource("1_2t60c")]
+
+[editable path="Transitions"]

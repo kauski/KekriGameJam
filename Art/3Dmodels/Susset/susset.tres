@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bq16fl4e5ck0r"]
+
+[ext_resource type="Texture2D" uid="uid://brcbb4vga46wg" path="res://Art/3Dmodels/Susset/Sukset.png" id="1_7ela1"]
+
+[resource]
+albedo_texture = ExtResource("1_7ela1")
+metallic_specular = 0.02

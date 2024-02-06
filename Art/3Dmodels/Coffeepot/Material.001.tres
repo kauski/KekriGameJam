@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d267r3y24vx30"]
+
+[ext_resource type="Texture2D" uid="uid://h1j1gff5ho1w" path="res://Art/3Dmodels/Coffeepot/Coffeepot_BC_coffeepot.png" id="1_afh64"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_afh64")
+metallic = 0.92
+metallic_specular = 1.0
+roughness = 0.39
+rim_enabled = true
+rim_tint = 0.6
+backlight = Color(0.392157, 0.866667, 0.894118, 1)

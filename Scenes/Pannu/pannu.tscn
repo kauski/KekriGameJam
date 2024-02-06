@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://mu6wtv5jrcyf"]
+
+[ext_resource type="Script" path="res://Scenes/Pannu/pannu.gd" id="1_edpbd"]
+[ext_resource type="PackedScene" uid="uid://qcrdlk6a8yv2" path="res://Scenes/Pannu/Coffeepot.fbx" id="1_qwvts"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_28hkn"]
+height = 1.93
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dgsfl"]
+height = 1.25122
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uecnh"]
+height = 1.25122
+radius = 0.183748
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d61xu"]
+direction = Vector3(0.29, 0.22, 0)
+gravity = Vector3(0, 9.8, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu6gl"]
+transparency = 1
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 0.0470588)
+rim = 0.0
+rim_tint = 1.0
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0c7qb"]
+lightmap_size_hint = Vector2i(6, 5)
+material = SubResource("StandardMaterial3D_pu6gl")
+size = Vector2(0.84, 0.795)
+
+[node name="pannu" type="RigidBody3D" groups=["Movable"]]
+collision_layer = 2
+collision_mask = 7
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+script = ExtResource("1_edpbd")
+
+[node name="Coffeepot" parent="." instance=ExtResource("1_qwvts")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0958203, 0)
+shape = SubResource("CylinderShape3D_28hkn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175671, 0)
+shape = SubResource("CylinderShape3D_dgsfl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.539403, -0.842048, 0, 0.842048, 0.539403, 0, 0, 0, 1, -1.1738, 0.367311, 0)
+shape = SubResource("CylinderShape3D_uecnh")
+
+[node name="TickRate" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="BlackSmoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64175, 0.720098, 0)
+amount = 498
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_d61xu")
+draw_pass_1 = SubResource("QuadMesh_0c7qb")
+
+[connection signal="timeout" from="TickRate" to="." method="Tick"]

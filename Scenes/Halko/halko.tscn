@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvjyyk2dilhpi"]
+
+[ext_resource type="Script" path="res://Scenes/Halko/halko.gd" id="1_h1d3c"]
+[ext_resource type="PackedScene" uid="uid://bfnduydbf8bmv" path="res://Art/3Dmodels/Log/Log_001.fbx" id="2_man7b"]
+[ext_resource type="PackedScene" uid="uid://bhtdbel7kokuq" path="res://Art/3Dmodels/VFX/fire_vfx.tscn" id="3_5sn07"]
+[ext_resource type="Material" uid="uid://c2n038qudxs45" path="res://Art/3Dmodels/Log/log.tres" id="3_wpboj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l0w1"]
+size = Vector3(0.580567, 0.223325, 2.42979)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6b8lp"]
+size = Vector3(0.265573, 0.367643, 2.42979)
+
+[node name="Halko" type="RigidBody3D" groups=["Halko", "Movable"]]
+collision_layer = 4
+collision_mask = 7
+axis_lock_linear_z = true
+continuous_cd = true
+can_sleep = false
+script = ExtResource("1_h1d3c")
+SpreadDistance = 1.5
+BurnTimeMaxSec = 35.0
+IsHalko = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301037, -0.0528226, 0.0352155)
+shape = SubResource("BoxShape3D_4l0w1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.513796, -0.857912, 0, 0.857912, 0.513796, 0, 0, 0, 1, -0.304818, 0.136582, 0.0352155)
+shape = SubResource("BoxShape3D_6b8lp")
+
+[node name="Flammable" parent="." instance=ExtResource("2_man7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395348, 0, 0.0377281)
+
+[node name="Log_001" parent="Flammable/RootNode" index="0"]
+surface_material_override/0 = ExtResource("3_wpboj")
+
+[node name="FireVFX" type="Node3D" parent="."]
+visible = false
+
+[node name="FireVfx" parent="FireVFX" instance=ExtResource("3_5sn07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304929, 0.117384, -0.710175)
+
+[node name="FireVfx2" parent="FireVFX" instance=ExtResource("3_5sn07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304929, 0.117384, -0.0140388)
+
+[node name="FireVfx3" parent="FireVFX" instance=ExtResource("3_5sn07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304929, 0.117384, 0.814736)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Flammable"]

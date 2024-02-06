@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cowpapmty4q42"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fagfw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+gravity_scale = 0.5
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(8.73602, 0, 0, 0, 0.1584, 0, 0, 0, 0.500001, 0, 0, 0)
+use_collision = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_fagfw")

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c3vnm83gbg10t"]
+
+[ext_resource type="Texture2D" uid="uid://brw5ksxpi5fe1" path="res://Art/3Dmodels/Log/Log_001-15bb56e6df8d4bc5e16daec7fa5d32af_LogAlbedo.png" id="1_1sc0q"]
+
+[resource]
+resource_name = "Material.001"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_1sc0q")
+metallic = 0.4

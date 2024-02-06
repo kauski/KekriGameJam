@@ -1,0 +1,346 @@
+[gd_scene load_steps=32 format=3 uid="uid://ba602ej28ummo"]
+
+[ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_5eydr"]
+[ext_resource type="PackedScene" uid="uid://mu6wtv5jrcyf" path="res://Scenes/Pannu/pannu.tscn" id="2_wws2s"]
+[ext_resource type="PackedScene" uid="uid://drl5n5h22hn26" path="res://Art/3Dmodels/Kamiina/prop_kamiina.gltf" id="3_ikkpa"]
+[ext_resource type="PackedScene" uid="uid://deea040xxwcwl" path="res://Art/3Dmodels/Kekrivuohi/prop_kekrivuohi.gltf" id="4_n0yuk"]
+[ext_resource type="PackedScene" uid="uid://dvjyyk2dilhpi" path="res://Scenes/Halko/halko.tscn" id="4_uxsg0"]
+[ext_resource type="Texture2D" uid="uid://blo1e026etn6u" path="res://Art/UI/tittlei.png" id="5_ek5qg"]
+[ext_resource type="PackedScene" uid="uid://bhtdbel7kokuq" path="res://Art/3Dmodels/VFX/fire_vfx.tscn" id="5_vmjjj"]
+[ext_resource type="PackedScene" uid="uid://dopi2f0ibssp4" path="res://Art/3Dmodels/Mänty/puugen.fbx" id="6_6cofo"]
+[ext_resource type="Texture2D" uid="uid://8kguffbhpkw" path="res://Art/UI/Buttons/UI_button_start_default.png" id="6_ychbe"]
+[ext_resource type="Texture2D" uid="uid://brl5p7d2wegmq" path="res://Art/UI/Buttons/UI_button_start_hover.png" id="7_1ifma"]
+[ext_resource type="PackedScene" uid="uid://b3uvx7utjilfs" path="res://Art/3Dmodels/Mänty/puugen2.fbx" id="7_v0uk1"]
+[ext_resource type="Texture2D" uid="uid://gxtjdo7ffmpb" path="res://Art/UI/Buttons/UI_button_Credits_default.png" id="8_o1ydf"]
+[ext_resource type="PackedScene" uid="uid://d0q2bcm2de7b6" path="res://Art/3Dmodels/Susset/susset.fbx" id="8_y6eue"]
+[ext_resource type="Texture2D" uid="uid://bdvjuwmhm176x" path="res://Art/UI/Buttons/UI_button_Credits_hover.png" id="9_36h5n"]
+[ext_resource type="PackedScene" uid="uid://bms2agyp2un35" path="res://Art/3Dmodels/Susset/sussisauvat.fbx" id="9_yunsl"]
+[ext_resource type="PackedScene" uid="uid://dyf4e2w3flsf7" path="res://Art/3Dmodels/Maasto/untitled.fbx" id="10_l27nh"]
+[ext_resource type="Texture2D" uid="uid://cjyksvay588u" path="res://Art/UI/Buttons/UI_button_quit_default.png" id="10_xt8f2"]
+[ext_resource type="Texture2D" uid="uid://b3k6siphxpjk7" path="res://Art/UI/Buttons/UI_button_quit_hover.png" id="11_7t6fr"]
+[ext_resource type="Texture2D" uid="uid://brnulwcwjipvc" path="res://Art/3Dmodels/VFX/SoftRound.png" id="11_fnigo"]
+[ext_resource type="Texture2D" uid="uid://bv2uo6suqwggn" path="res://Art/UI/thisisfine.png" id="20_bpcj5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j43gn"]
+size = Vector3(25.7552, 1, 9.5891)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h7ye1"]
+size = Vector3(1, 0.737257, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46cok"]
+sky_top_color = Color(0.407843, 0.337255, 0.619608, 1)
+sky_horizon_color = Color(1, 0.454902, 0.247059, 1)
+sky_curve = 0.0803831
+sky_energy_multiplier = 2.0
+ground_bottom_color = Color(0.266667, 0.254902, 0.180392, 1)
+ground_horizon_color = Color(1, 0.454902, 0.247059, 1)
+ground_curve = 0.0746425
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_i48vg"]
+sky_material = SubResource("ProceduralSkyMaterial_46cok")
+
+[sub_resource type="Environment" id="Environment_6dnbp"]
+background_mode = 2
+background_energy_multiplier = 0.8
+sky = SubResource("Sky_i48vg")
+ambient_light_color = Color(0.290196, 0.290196, 0.356863, 1)
+sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.513726, 0.611765, 0.768627, 1)
+fog_light_energy = 0.57
+fog_sun_scatter = 0.32
+fog_sky_affect = 0.59
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.005
+volumetric_fog_albedo = Color(0.894118, 0.921569, 0.952941, 1)
+volumetric_fog_anisotropy = 0.1
+volumetric_fog_sky_affect = 0.12
+
+[sub_resource type="FogMaterial" id="FogMaterial_5d7gu"]
+density = 0.018
+height_falloff = 0.181792
+edge_fade = 0.131951
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6pef"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("11_fnigo")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tbsfj"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(3.155, 0.455, 1)
+scale_min = 0.1
+scale_max = 0.5
+turbulence_enabled = true
+turbulence_noise_strength = 0.75
+turbulence_noise_scale = 5.75
+
+[sub_resource type="QuadMesh" id="QuadMesh_w141c"]
+
+[sub_resource type="Animation" id="Animation_l5y8t"]
+resource_name = "titleanim"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0610865, -0.172788, 0.0610865]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4d3xh"]
+_data = {
+"titleanim": SubResource("Animation_l5y8t")
+}
+
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5eydr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 520.0
+offset_top = 442.0
+offset_right = -520.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.396635, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.989116, 0.147136, 0, -0.147136, 0.989116, -6.39568, 7.71123, 9.02532)
+
+[node name="pannu" parent="Node3D" instance=ExtResource("2_wws2s")]
+transform = Transform3D(0.933205, 0, 0.359345, 0, 1, 0, -0.359345, 0, 0.933205, 2.1083, 8.28074, -0.913522)
+visible = false
+collision_mask = 15
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65027, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.06606, 0.160674, 0)
+shape = SubResource("BoxShape3D_j43gn")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D"]
+visible = false
+
+[node name="prop_kamiina" parent="Node3D/StaticBody3D2" instance=ExtResource("3_ikkpa")]
+transform = Transform3D(0.535355, 0, -0.844627, 0, 1, 0, 0.844627, 0, 0.535355, 2.39866, 0, -1.06941)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D2"]
+transform = Transform3D(2.17087, 0, -3.42496, 0, 9.4, 0, 3.42496, 0, 2.17087, 2.39866, 3.44526, -1.06941)
+shape = SubResource("BoxShape3D_h7ye1")
+
+[node name="prop_kekrivuohi" parent="Node3D" instance=ExtResource("4_n0yuk")]
+transform = Transform3D(0.392838, 0, -1.12435, 0, 1.191, 0, 1.12435, 0, 0.392838, 3.3685, -1.85248, -6.94045)
+
+[node name="FireVfx" parent="Node3D" instance=ExtResource("5_vmjjj")]
+transform = Transform3D(1.191, 0, 0, 0, 1.191, 0, 0, 0, 1.191, -2.10915, 2.16583, -4.59322)
+
+[node name="FireVfx2" parent="Node3D" instance=ExtResource("5_vmjjj")]
+transform = Transform3D(1.191, 0, 0, 0, 1.191, 0, 0, 0, 1.191, -0.479989, 1.76019, -4.80704)
+
+[node name="FireVfx3" parent="Node3D" instance=ExtResource("5_vmjjj")]
+transform = Transform3D(1.191, 0, 0, 0, 1.191, 0, 0, 0, 1.191, -1.34187, 1.76019, -4.80704)
+
+[node name="FireVfx4" parent="Node3D" instance=ExtResource("5_vmjjj")]
+transform = Transform3D(1.191, 0, 0, 0, 1.191, 0, 0, 0, 1.191, 0.162651, 0.981132, -4.80704)
+
+[node name="FireVfx5" parent="Node3D" instance=ExtResource("5_vmjjj")]
+transform = Transform3D(1.191, 0, 0, 0, 1.191, 0, 0, 0, 1.191, -1.87601, -0.44806, -5.54906)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Node3D"]
+transform = Transform3D(-0.938184, -0.0618938, -0.340558, 0.0988952, -0.990801, -0.0923705, -0.331708, -0.12034, 0.935675, -0.86439, 9.29677, -14.4346)
+light_color = Color(0.843137, 0.529412, 0, 1)
+light_energy = 2.387
+light_indirect_energy = 1.311
+light_volumetric_fog_energy = 24.0
+shadow_enabled = true
+shadow_bias = 0.522
+
+[node name="puugen" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(1, 0, 0, 0, 0.998201, 0.059951, 0, -0.059951, 0.998201, -45.2182, 1.57949, -38.7902)
+
+[node name="puugen5" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(1, 0, 0, 0, 0.967779, 0.251799, 0, -0.251799, 0.967779, 9.60235, -0.600847, -39.9211)
+
+[node name="puugen4" parent="Node3D" instance=ExtResource("7_v0uk1")]
+transform = Transform3D(0.993719, -0.111769, -0.00560959, 0.111904, 0.991925, 0.059688, -0.00110696, -0.0599408, 0.998201, -20.4786, -1.8495, -22.821)
+
+[node name="puugen12" parent="Node3D" instance=ExtResource("7_v0uk1")]
+transform = Transform3D(-0.630626, 0.117308, -0.767171, 0.111904, 0.991925, 0.059688, 0.767978, -0.0482088, -0.63866, 27.5919, -0.185509, -22.821)
+
+[node name="puugen10" parent="Node3D" instance=ExtResource("7_v0uk1")]
+transform = Transform3D(0.782981, -0.0146622, 0, 0.0144338, 0.79251, 0.0467636, -0.000866879, -0.0475974, 0.778628, -33.6783, -1.69914, -17.651)
+
+[node name="puugen6" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(1, 0, 0, 0, 0.967779, 0.251799, 0, -0.251799, 0.967779, -14.5137, 2.1348, -44.4766)
+
+[node name="puugen7" parent="Node3D" instance=ExtResource("7_v0uk1")]
+transform = Transform3D(0.99983, -0.0184645, 0, 0.0184313, 0.998032, 0.059951, -0.00110697, -0.0599408, 0.998201, -44.7586, -0.278765, -76.8668)
+
+[node name="puugen8" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(-0.317454, -0.183327, 0.930384, -0.05685, 0.983049, 0.174307, -0.946568, 0.00244195, -0.322495, -4.46434, -3.4446, -96.9629)
+
+[node name="puugen9" parent="Node3D" instance=ExtResource("7_v0uk1")]
+transform = Transform3D(-0.3174, 0.00586163, 0.948274, -0.038409, 0.999081, -0.0190317, -0.947514, -0.0424629, -0.316883, 5.42338, -0.34491, -81.5622)
+
+[node name="puugen3" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(-0.142702, 0.0718181, -0.987157, 0.0697315, 0.995615, 0.0623531, 0.987306, -0.059938, -0.147084, 16.6707, 3.3083, -31.4439)
+
+[node name="puugen11" parent="Node3D" instance=ExtResource("6_6cofo")]
+transform = Transform3D(-0.142702, 0.0718181, -0.987157, 0.0697315, 0.995615, 0.0623531, 0.987306, -0.059938, -0.147084, -46.44, 3.3083, -20.9599)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+environment = SubResource("Environment_6dnbp")
+
+[node name="susset" parent="Node3D" instance=ExtResource("8_y6eue")]
+transform = Transform3D(-0.120126, -0.193229, -0.973772, 0.379887, 0.897273, -0.224913, 0.9172, -0.396942, -0.0343807, 6.23028, 7.03656, -27.9061)
+
+[node name="susset2" parent="Node3D" instance=ExtResource("8_y6eue")]
+transform = Transform3D(-0.00932266, 0.064886, -0.997849, 0.398319, 0.915547, 0.0558129, 0.9172, -0.396942, -0.0343807, 6.69661, 7.03656, -27.9061)
+
+[node name="sussisauvat" parent="Node3D" instance=ExtResource("9_yunsl")]
+transform = Transform3D(0.999763, -0.0102702, -0.0191932, 0.00673342, 0.984369, -0.17599, 0.0207006, 0.175819, 0.984205, 5.91015, 6.50442, -26.9181)
+
+[node name="sussisauvat2" parent="Node3D" instance=ExtResource("9_yunsl")]
+transform = Transform3D(0.986434, 0.15675, -0.0487494, -0.162845, 0.971863, -0.170189, 0.0207006, 0.175819, 0.984205, 6.91259, 6.65749, -26.897)
+
+[node name="FogVolume" type="FogVolume" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16988, 3.87972, -39.7457)
+size = Vector3(108.97, 50.02, 55.96)
+material = SubResource("FogMaterial_5d7gu")
+
+[node name="untitled" parent="Node3D/FogVolume" instance=ExtResource("10_l27nh")]
+transform = Transform3D(-6.32067e-08, 0, 3.85861, 0.304318, 1.15781, 3.54963e-08, -1.41361, 0.249248, -1.64887e-07, -5.19551, -5.99664, 24.595)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D/FogVolume"]
+transform = Transform3D(9.6225, 0, 0, 0, 8.35297, 0, 0, 0, 6.01011, -6.2701, 24.354, 18.44)
+material_override = SubResource("StandardMaterial3D_h6pef")
+amount = 256
+lifetime = 9.72
+preprocess = 5.05
+randomness = 1.0
+visibility_aabb = AABB(-4, -4, -3.88314, 8, 8, 7.76627)
+process_material = SubResource("ParticleProcessMaterial_tbsfj")
+draw_pass_1 = SubResource("QuadMesh_w141c")
+
+[node name="Halko14" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -17.1513, 2.39802, 0.542145)
+
+[node name="Halko15" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -16.547, 2.39802, -0.540839)
+
+[node name="Halko21" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -17.1513, 3.10973, 0.542145)
+
+[node name="Halko27" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -16.8466, 3.31705, -0.00391832)
+
+[node name="Halko28" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -16.5999, 3.36435, -0.843485)
+
+[node name="Halko33" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -17.1513, 4.45459, 0.542145)
+
+[node name="Halko34" parent="." instance=ExtResource("4_uxsg0")]
+transform = Transform3D(0.487265, 0, 0.873254, 0, 1, 0, -0.873254, 0, 0.487265, -16.547, 4.45459, -0.540839)
+visible = false
+
+[node name="Tittlei" type="Sprite2D" parent="."]
+position = Vector2(718, 240)
+rotation = 0.0610865
+scale = Vector2(0.657348, 0.657348)
+texture = ExtResource("5_ek5qg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tittlei"]
+process_mode = 3
+autoplay = "titleanim"
+reset_on_save = false
+speed_scale = 0.67
+libraries = {
+"": SubResource("AnimationLibrary_4d3xh")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 456.0
+offset_right = 975.0
+offset_bottom = 712.0
+
+[node name="StartButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_ychbe")
+texture_pressed = ExtResource("7_1ifma")
+texture_hover = ExtResource("7_1ifma")
+
+[node name="Credits" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("8_o1ydf")
+texture_pressed = ExtResource("9_36h5n")
+texture_hover = ExtResource("9_36h5n")
+
+[node name="QuitButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("10_xt8f2")
+texture_pressed = ExtResource("11_7t6fr")
+texture_hover = ExtResource("11_7t6fr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1175.08, 361.81)
+scale = Vector2(0.545, 0.545)
+texture = ExtResource("20_bpcj5")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

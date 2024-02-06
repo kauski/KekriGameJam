@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dpho5853we8uh"]
+
+[ext_resource type="Texture2D" uid="uid://xpn45gkhf18h" path="res://Art/3Dmodels/Mänty/Oksa.png" id="1_nyats"]
+
+[resource]
+resource_name = "Material.001"
+transparency = 2
+alpha_scissor_threshold = 0.783
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_nyats")
+metallic = 0.4

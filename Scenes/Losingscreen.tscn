@@ -1,0 +1,442 @@
+[gd_scene load_steps=37 format=3 uid="uid://ggi7pjvhyxom"]
+
+[ext_resource type="PackedScene" uid="uid://dopi2f0ibssp4" path="res://Art/3Dmodels/Mänty/puugen.fbx" id="1_h0nfd"]
+[ext_resource type="PackedScene" uid="uid://dyf4e2w3flsf7" path="res://Art/3Dmodels/Maasto/untitled.fbx" id="2_2tsc1"]
+[ext_resource type="Texture2D" uid="uid://byovhqieyxy2e" path="res://Art/UI/gameover.png" id="2_vcspw"]
+[ext_resource type="PackedScene" uid="uid://5qvr2epbvamf" path="res://Art/3Dmodels/Coffeepot/Coffeepot.gltf" id="3_e2bq0"]
+[ext_resource type="Texture2D" uid="uid://brnulwcwjipvc" path="res://Art/3Dmodels/VFX/SoftRound.png" id="4_03ppe"]
+[ext_resource type="PackedScene" uid="uid://b3uvx7utjilfs" path="res://Art/3Dmodels/Mänty/puugen2.fbx" id="5_6f145"]
+[ext_resource type="PackedScene" uid="uid://deea040xxwcwl" path="res://Art/3Dmodels/Kekrivuohi/prop_kekrivuohi.gltf" id="6_ytgmr"]
+[ext_resource type="Shader" uid="uid://dr5edxgt3yh1v" path="res://Scenes/confettishader.tres" id="7_uk1ir"]
+[ext_resource type="Gradient" uid="uid://thi738ecjhaa" path="res://Art/3Dmodels/VFX/EndingScreen.tres" id="8_osod4"]
+[ext_resource type="Script" path="res://Scenes/OikeaPuu.gd" id="9_kx6sk"]
+[ext_resource type="Script" path="res://Scripts/SpawnLeaf.gd" id="10_10p3c"]
+[ext_resource type="Script" path="res://Scenes/Halko/halko.gd" id="11_75bp0"]
+[ext_resource type="PackedScene" uid="uid://bfnduydbf8bmv" path="res://Art/3Dmodels/Log/Log_001.fbx" id="12_31c4c"]
+[ext_resource type="Shader" uid="uid://d2s7o6h7c648s" path="res://Art/3Dmodels/Log/logger.tres" id="13_2focf"]
+[ext_resource type="Texture2D" uid="uid://dr7vay3vlmpc7" path="res://Art/3Dmodels/Log/LogAlbedo.png" id="14_nweml"]
+[ext_resource type="Texture2D" uid="uid://cyia0ttjfsjl7" path="res://Art/3Dmodels/Log/LogAlbedoBurned.png" id="15_l1nja"]
+[ext_resource type="PackedScene" uid="uid://bhtdbel7kokuq" path="res://Art/3Dmodels/VFX/fire_vfx.tscn" id="16_uuf4j"]
+[ext_resource type="PackedScene" uid="uid://dvjyyk2dilhpi" path="res://Scenes/Halko/halko.tscn" id="17_svl71"]
+[ext_resource type="PackedScene" uid="uid://ccgk6ptm2vl0k" path="res://Scenes/Kurre/kurre.tscn" id="18_v6265"]
+[ext_resource type="PackedScene" uid="uid://c3af8qlu8qx7o" path="res://Art/3Dmodels/Maasto/firewall.fbx" id="19_qjtop"]
+[ext_resource type="PackedScene" uid="uid://cyrga4wxpnjbm" path="res://Art/UI/transitions.tscn" id="20_hkbmb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tjte"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("4_03ppe")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s2xo0"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(3.155, 0.455, 1)
+scale_min = 0.1
+scale_max = 0.5
+turbulence_enabled = true
+turbulence_noise_strength = 0.75
+turbulence_noise_scale = 5.75
+
+[sub_resource type="QuadMesh" id="QuadMesh_l5yql"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_nybst"]
+density = 0.01
+height_falloff = 0.351199
+edge_fade = 0.0435276
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vd08s"]
+sky_top_color = Color(0.733333, 0.0705882, 0.0862745, 1)
+sky_horizon_color = Color(1, 0.568627, 0, 1)
+sky_curve = 0.130583
+sky_energy_multiplier = 4.72
+ground_bottom_color = Color(0.435294, 0.215686, 0.109804, 1)
+ground_horizon_color = Color(1, 0.6, 0, 1)
+ground_curve = 0.0746425
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_i48vg"]
+sky_material = SubResource("ProceduralSkyMaterial_vd08s")
+
+[sub_resource type="Environment" id="Environment_16j03"]
+background_mode = 2
+sky = SubResource("Sky_i48vg")
+ambient_light_color = Color(0.290196, 0.290196, 0.356863, 1)
+sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.513726, 0.611765, 0.768627, 1)
+fog_light_energy = 0.57
+fog_sun_scatter = 0.32
+fog_sky_affect = 0.59
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.005
+volumetric_fog_albedo = Color(0.894118, 0.921569, 0.952941, 1)
+volumetric_fog_anisotropy = 0.1
+volumetric_fog_sky_affect = 0.12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8r8id"]
+render_priority = 0
+shader = ExtResource("7_uk1ir")
+
+[sub_resource type="Curve" id="Curve_ywwku"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.926316), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_61no7"]
+resource_local_to_scene = true
+curve = SubResource("Curve_ywwku")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_16tb6"]
+resource_local_to_scene = true
+gradient = ExtResource("8_osod4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lkdk8"]
+emission_shape = 3
+emission_box_extents = Vector3(8, 1, 8)
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -4.9, 0)
+angle_min = -360.0
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_61no7")
+scale_min = 0.1
+scale_max = 0.25
+color = Color(1, 0, 0, 1)
+color_initial_ramp = SubResource("GradientTexture1D_16tb6")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 0.49
+turbulence_noise_scale = 8.69
+
+[sub_resource type="QuadMesh" id="QuadMesh_j58y3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yaulx"]
+height = 34.1803
+radius = 1.37761
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0m0kk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("13_2focf")
+shader_parameter/Burned = 0.0
+shader_parameter/Texture2DParameter = ExtResource("14_nweml")
+shader_parameter/Texture2DParameter2 = ExtResource("15_l1nja")
+
+[node name="EndingScreen" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.82878)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="puugen" parent="Node3D" instance=ExtResource("1_h0nfd")]
+transform = Transform3D(1, 0, 0, 0, 0.999917, -0.0128627, 0, 0.0128627, 0.999917, 13.4532, 0, -10.1987)
+
+[node name="puugen2" parent="Node3D" instance=ExtResource("1_h0nfd")]
+transform = Transform3D(0.650602, 0, 0.759419, 0, 1, 0, -0.759419, 0, 0.650602, -5.02837, -1.06666, -19.5215)
+
+[node name="puugen3" parent="Node3D" instance=ExtResource("1_h0nfd")]
+transform = Transform3D(0.465893, 0, 0.884841, 0.124721, 0.990016, -0.065669, -0.876007, 0.140953, 0.461241, 37.3187, -1.06666, 14.6336)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 49.0
+offset_right = 1240.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 562.0
+offset_top = 284.0
+offset_right = 523.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "HÄVISIT PELIN"
+fit_content = true
+
+[node name="Yippee" type="Sprite2D" parent="Control"]
+position = Vector2(625, 320)
+texture = ExtResource("2_vcspw")
+
+[node name="untitled" parent="." instance=ExtResource("2_2tsc1")]
+transform = Transform3D(1.01612, 0, 1.07469, 0, 1, 0, -0.380436, 0, 2.87041, 4.24222, -0.759648, -2.91828)
+
+[node name="Coffeepot" parent="." instance=ExtResource("3_e2bq0")]
+transform = Transform3D(-0.898218, 0.415716, 0.142778, 0.0494694, -0.227155, 0.972601, 0.436758, 0.880671, 0.183469, 6.46993, 0.510399, 5.92138)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Coffeepot"]
+transform = Transform3D(9.6225, 0, 0, 0, 8.35297, 0, 0, 0, 6.01011, -1.07459, 5.83359, 2.24471)
+material_override = SubResource("StandardMaterial3D_5tjte")
+amount = 256
+lifetime = 9.72
+preprocess = 5.05
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s2xo0")
+draw_pass_1 = SubResource("QuadMesh_l5yql")
+
+[node name="puugen2" parent="." instance=ExtResource("5_6f145")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7564, -0.0357332, 9.37758)
+
+[node name="puugen4" parent="." instance=ExtResource("5_6f145")]
+transform = Transform3D(0.994555, 0.104216, 0, -0.102288, 0.976152, -0.191477, -0.019955, 0.190434, 0.981497, 23.7564, 0.0743189, 21.7451)
+
+[node name="puugen6" parent="." instance=ExtResource("5_6f145")]
+transform = Transform3D(-0.916549, 0.139205, 0.374914, 0.101526, 0.987744, -0.118549, -0.386822, -0.0705922, -0.919449, 22.8355, -2.21317, -0.423639)
+
+[node name="puugen5" parent="." instance=ExtResource("5_6f145")]
+transform = Transform3D(-0.863732, 0.00752231, 0.503895, 0.00649744, 0.999972, -0.00379056, -0.50391, 0, -0.863756, 9.33057, -7.90908, -32.8233)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.376253, -0.92647, -0.00934255, 0.00609872, 0.0125598, -0.999903, 0.926497, 0.376159, 0.010376, 2.50214, 1.7363, 0)
+light_color = Color(0.921569, 0.501961, 0.227451, 1)
+light_energy = 0.318
+light_indirect_energy = 11.19
+light_volumetric_fog_energy = 64.0
+shadow_enabled = true
+shadow_blur = 2.748
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.66315, -0.122304, -0.738427, 0.00379587, 0.987097, -0.160081, 0.748477, 0.103355, 0.655057, -1.86825, 1.7822, 10.9971)
+current = true
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09274, 0, 6.35757)
+size = Vector3(158.96, 39.1, 213.78)
+material = SubResource("FogMaterial_nybst")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_16j03")
+
+[node name="prop_kekrivuohi" parent="." instance=ExtResource("6_ytgmr")]
+transform = Transform3D(0.94281, 0, -0.33333, 0, 1, 0, 0.33333, 0, 0.94281, 7.49808, -0.309168, -1.85786)
+
+[node name="Confetti" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.801128, 0, -0.598492, 0, 1, 0, 0.598492, 0, 0.801128, 4.80746, 16.4229, 5.4287)
+visible = false
+material_override = SubResource("ShaderMaterial_8r8id")
+amount = 256
+lifetime = 5.27
+preprocess = 6.44
+randomness = 0.95
+visibility_aabb = AABB(-8.60663, -1.67203, -10.4978, 17.2133, 3.34406, 21.8072)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_lkdk8")
+draw_pass_1 = SubResource("QuadMesh_j58y3")
+
+[node name="OikeaPuu" type="StaticBody3D" parent="." groups=["Tree"]]
+transform = Transform3D(1, 0, 0, 0, 0.74, 0, 0, 0, 1, 3.71483, -0.740599, -2.67109)
+script = ExtResource("9_kx6sk")
+
+[node name="Puu" parent="OikeaPuu" instance=ExtResource("5_6f145")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638322, 0, 0.252932)
+script = ExtResource("10_10p3c")
+
+[node name="LeafSpawnPosition" type="Node3D" parent="OikeaPuu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56579, 11.83, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OikeaPuu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.483779, 0, -0.123741)
+shape = SubResource("CylinderShape3D_yaulx")
+
+[node name="Halko" type="RigidBody3D" parent="OikeaPuu" groups=["Halko", "Movable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.16404, 1.7833, -0.192413)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+continuous_cd = true
+can_sleep = false
+script = ExtResource("11_75bp0")
+SpreadDistance = 1.5
+BurnTimeMaxSec = 35.0
+IsHalko = true
+
+[node name="Flammable" parent="OikeaPuu/Halko" instance=ExtResource("12_31c4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395348, 0, 0.0377281)
+
+[node name="Log_001" parent="OikeaPuu/Halko/Flammable/RootNode" index="0"]
+visible = false
+surface_material_override/0 = SubResource("ShaderMaterial_0m0kk")
+
+[node name="FireVFX" type="Node3D" parent="OikeaPuu/Halko"]
+
+[node name="FireVfx" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787397, -0.510566, 1.54092)
+
+[node name="FireVfx2" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, -3.82501, -1.11332, -0.282759)
+
+[node name="FireVfx3" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24275, 0.394471, 1.81952)
+
+[node name="FireVfx4" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380259, 0.00662553, -0.639734)
+
+[node name="FireVfx5" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, -2.73434, -1.2006, 2.63221)
+
+[node name="FireVfx6" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(0.8, 0, 0, 0, 1, -1.77636e-14, 0, 0, 1, -2.02414, -1.41813, 6.08368)
+
+[node name="FireVfx7" parent="OikeaPuu/Halko/FireVFX" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, -3.51928, -0.390658, 3.97417)
+
+[node name="FireVFX2" type="Node3D" parent="OikeaPuu/Halko"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.13163e-14, 0, 0, 1, -7.89622, 14.9508, 6.55651e-07)
+
+[node name="FireVfx" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787397, -0.510566, 1.54092)
+
+[node name="FireVfx2" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, -3.82501, -1.11332, -0.282759)
+
+[node name="FireVfx3" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24275, 0.394471, 1.81952)
+
+[node name="FireVfx4" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380259, 0.00662553, -0.639734)
+
+[node name="FireVfx5" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, -2.73434, -1.2006, 2.63221)
+
+[node name="FireVfx6" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(0.8, 0, 0, 0, 1, -1.77636e-14, 0, 0, 1, -2.02414, -1.41813, 6.08368)
+
+[node name="FireVfx7" parent="OikeaPuu/Halko/FireVFX2" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, -3.51928, -0.390658, 3.97417)
+
+[node name="FireVFX3" type="Node3D" parent="OikeaPuu/Halko"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, 17.1077, -1.71885, -5.96046e-08)
+
+[node name="FireVfx" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787397, -0.510566, 1.54092)
+
+[node name="FireVfx2" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, -3.82501, -1.11332, -0.282759)
+
+[node name="FireVfx3" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24275, 0.394471, 1.81952)
+
+[node name="FireVfx4" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380259, 0.00662553, -0.639734)
+
+[node name="FireVfx5" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, -2.73434, -1.2006, 2.63221)
+
+[node name="FireVfx6" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(0.8, 0, 0, 0, 1, -1.77636e-14, 0, 0, 1, -2.02414, -1.41813, 6.08368)
+
+[node name="FireVfx7" parent="OikeaPuu/Halko/FireVFX3" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, -3.51928, -0.390658, 3.97417)
+
+[node name="FireVFX4" type="Node3D" parent="OikeaPuu/Halko"]
+transform = Transform3D(1, 0, 0, 0, 1, -5.68434e-14, 0, 0, 1, 16.3065, -10.8708, 4.29208)
+
+[node name="FireVfx" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787397, -0.510566, 1.54092)
+
+[node name="FireVfx2" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, -3.82501, -1.11332, -0.282759)
+
+[node name="FireVfx3" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24275, 0.394471, 1.81952)
+
+[node name="FireVfx4" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380259, 0.00662553, -0.639734)
+
+[node name="FireVfx5" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, -2.73434, -1.2006, 2.63221)
+
+[node name="FireVfx6" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(0.8, 0, 0, 0, 1, -1.77636e-14, 0, 0, 1, -2.02414, -1.41813, 6.08368)
+
+[node name="FireVfx7" parent="OikeaPuu/Halko/FireVFX4" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, -3.51928, -0.390658, 3.97417)
+
+[node name="FireVFX5" type="Node3D" parent="OikeaPuu/Halko"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, 20.9888, -23.7577, 3.71862)
+
+[node name="FireVfx" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.787397, -0.510566, 1.54092)
+
+[node name="FireVfx2" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 0, 1, -3.82501, -1.11332, -0.282759)
+
+[node name="FireVfx3" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24275, 0.394471, 1.81952)
+
+[node name="FireVfx4" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380259, 0.00662553, -0.639734)
+
+[node name="FireVfx5" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 0, 1, -2.73434, -1.2006, 2.63221)
+
+[node name="FireVfx6" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(0.8, 0, 0, 0, 1, -1.77636e-14, 0, 0, 1, -2.02414, -1.41813, 6.08368)
+
+[node name="FireVfx7" parent="OikeaPuu/Halko/FireVFX5" instance=ExtResource("16_uuf4j")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.52651e-14, 0, 0, 1, -3.51928, -0.390658, 3.97417)
+
+[node name="Timer" type="Timer" parent="OikeaPuu/Halko"]
+wait_time = 7.5
+
+[node name="Halko" parent="." instance=ExtResource("17_svl71")]
+transform = Transform3D(0.961045, 0, -0.276392, 0, 1, 0, 0.276392, 0, 0.961045, 2.34266, -0.619338, 7.81269)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+continuous_cd = false
+Burning = true
+InfiniteFlame = true
+
+[node name="Halko2" parent="." instance=ExtResource("17_svl71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10212, -0.619338, 7.81269)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+continuous_cd = false
+Burning = true
+InfiniteFlame = true
+
+[node name="Kurre" parent="." instance=ExtResource("18_v6265")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91033, -0.617246, 9.49332)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+continuous_cd = false
+Burning = true
+InfiniteFlame = true
+
+[node name="firewall" parent="." instance=ExtResource("19_qjtop")]
+transform = Transform3D(-0.305054, 0, -2.49606, 0, 3.87859, 0, 0.279443, 0, -2.72483, 27.248, 0.231169, -2.06116)
+
+[node name="Transitions" parent="." instance=ExtResource("20_hkbmb")]
+
+[connection signal="HalkoLighted" from="OikeaPuu/Halko" to="OikeaPuu" method="_on_halko_halko_lighted"]
+[connection signal="timeout" from="OikeaPuu/Halko/Timer" to="OikeaPuu/Halko" method="_on_timer_timeout" flags=18]
+
+[editable path="OikeaPuu/Halko/Flammable"]

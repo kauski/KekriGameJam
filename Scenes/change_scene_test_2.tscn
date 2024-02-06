@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ymovnvl056p"]
+
+[ext_resource type="PackedScene" uid="uid://duluyeult06ec" path="res://Art/UI/transitions.tscn" id="1_apvr6"]
+[ext_resource type="PackedScene" uid="uid://c3pk76v6urrfw" path="res://Scenes/DemoScene365.tscn" id="2_e5aas"]
+
+[node name="ChangeSceneTest2" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitions" parent="." instance=ExtResource("1_apvr6")]
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+scene_to_load = ExtResource("2_e5aas")

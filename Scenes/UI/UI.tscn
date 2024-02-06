@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6on765rvwql1"]
+
+[ext_resource type="Texture2D" uid="uid://bc3l2g8a81s8i" path="res://Art/UI_NinePatch.png" id="1_0blgg"]
+[ext_resource type="Script" path="res://Scenes/UI/UI.gd" id="1_xqjwa"]
+[ext_resource type="Texture2D" uid="uid://dorjcfy8ypeuu" path="res://Art/Square.png" id="2_yvikn"]
+[ext_resource type="Texture2D" uid="uid://pavhedbca7mg" path="res://Scenes/UI/HeatColorGradient.tres" id="4_8o0a6"]
+[ext_resource type="Texture2D" uid="uid://cl2sl3ncwge0c" path="res://Scenes/UI/BrewColorGradient.tres" id="4_pl2kb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqjwa")
+
+[node name="BrewBar" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 63.0
+texture = ExtResource("1_0blgg")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="BrewBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Brew"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BrewBar" type="TextureProgressBar" parent="BrewBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("2_yvikn")
+texture_progress = ExtResource("4_pl2kb")
+tint_under = Color(0.560784, 0.560784, 0.560784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HeatBar" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 211.0
+offset_bottom = 127.0
+texture = ExtResource("1_0blgg")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="HeatBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Heat
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeatBar" type="TextureProgressBar" parent="HeatBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 120.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("4_8o0a6")
+texture_progress = ExtResource("4_8o0a6")
+tint_under = Color(0.431373, 0.431373, 0.431373, 1)
+
+[node name="CoffeeBar" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 214.0
+offset_top = 1.0
+offset_right = 425.0
+offset_bottom = 117.0
+texture = ExtResource("1_0blgg")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="CoffeeBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coffee"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoffeeBar" type="TextureProgressBar" parent="CoffeeBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("2_yvikn")
+texture_progress = ExtResource("2_yvikn")
+tint_under = Color(0.768627, 0.0666667, 0.105882, 1)
+tint_progress = Color(0.235294, 0.898039, 0.215686, 1)
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3pk76v6urrfw"]
+
+[ext_resource type="PackedScene" uid="uid://dvjyyk2dilhpi" path="res://Scenes/Halko/halko.tscn" id="1_w11d4"]
+[ext_resource type="PackedScene" uid="uid://mu6wtv5jrcyf" path="res://Scenes/Pannu/pannu.tscn" id="3_4v7lb"]
+[ext_resource type="PackedScene" uid="uid://c6on765rvwql1" path="res://Scenes/UI/UI.tscn" id="6_axstc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_02cyx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwkcs"]
+size = Vector3(11.9061, 0.24675, 1)
+
+[node name="DemoScene365" type="Node3D"]
+
+[node name="Halko" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 2.83745, 2.2936, -0.0157664)
+Burning = true
+
+[node name="Halko2" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 5.66928, 1.82984, 0)
+
+[node name="Halko3" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 0.340179, 1.37348, 0)
+
+[node name="Halko4" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 0.928321, 2.59423, 0)
+
+[node name="Halko5" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 1.2685, 2.13787, 0)
+
+[node name="Halko6" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -5.32727, 3.33085, 0)
+
+[node name="Halko7" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 6.28055, 2.87449, 0)
+
+[node name="Halko8" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 7.28113, 3.45013, 0)
+
+[node name="Halko9" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, 1.95203, 2.99377, 0)
+
+[node name="Halko10" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -6.2224, 3.55543, 0)
+
+[node name="Halko11" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -5.88222, 3.09907, 0)
+
+[node name="Halko12" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -2.68628, 2.73583, 0)
+
+[node name="Halko13" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -1.02865, 2.27947, 0)
+
+[node name="Halko14" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -3.48423, 1.91842, 0)
+
+[node name="Halko15" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -1.8266, 1.46206, 0)
+
+[node name="Halko16" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -3.30607, 3.45571, 0)
+
+[node name="Halko17" parent="." instance=ExtResource("1_w11d4")]
+transform = Transform3D(0.851773, 0.523912, 0, -0.523912, 0.851773, 0, 0, 0, 1, -1.64844, 2.99935, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(11.865, 0, 0, 0, 0.26, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_02cyx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_jwkcs")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(0.77426, -0.632868, 0, 0.632868, 0.77426, 0, 0, 0, 1, 5.03507, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(11.865, 0, 0, 0, 0.26, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_02cyx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_jwkcs")
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(0.699676, 0.71446, 0, -0.71446, 0.699676, 0, 0, 0, 1, -5.80974, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3"]
+transform = Transform3D(11.865, 0, 0, 0, 0.26, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_02cyx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_jwkcs")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.954261, 0.298974, 0, -0.298974, 0.954261, -0.288269, 4.58041, 7.91298)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.756013, 0.654556, 0, -0.654556, 0.756013, 0, 1.38031, 6.45995)
+
+[node name="pannu" parent="." instance=ExtResource("3_4v7lb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.92289, 0)
+
+[node name="Control" parent="." instance=ExtResource("6_axstc")]
+
+[connection signal="BrewPercentChanged" from="pannu" to="Control" method="ChangeBrewPercent"]
+[connection signal="CoffeeLeftChanged" from="pannu" to="Control" method="ChangeCoffeeLeftPercent"]
+[connection signal="HeatPercentChanged" from="pannu" to="Control" method="ChangeHeatPercent"]

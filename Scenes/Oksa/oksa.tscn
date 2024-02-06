@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4p7bagry5oau"]
+
+[ext_resource type="Script" path="res://Scenes/Halko/halko.gd" id="1_2k45h"]
+[ext_resource type="PackedScene" uid="uid://dw8p13vklacpk" path="res://Art/3Dmodels/oksa/prop_oksa.gltf" id="3_utucm"]
+[ext_resource type="PackedScene" uid="uid://bhtdbel7kokuq" path="res://Art/3Dmodels/VFX/fire_vfx.tscn" id="4_koqcp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4l0w1"]
+size = Vector3(1.96, 0.223, 4.32857)
+
+[node name="Oksa" type="RigidBody3D" groups=["Halko", "Movable"]]
+collision_layer = 4
+collision_mask = 7
+axis_lock_linear_z = true
+continuous_cd = true
+can_sleep = false
+script = ExtResource("1_2k45h")
+SpreadDistance = 1.5
+BurnTimeMinSec = 15.0
+BurnTimeMaxSec = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00934452, -0.0154272, 0.0352155)
+shape = SubResource("BoxShape3D_4l0w1")
+
+[node name="FireVFX" type="Node3D" parent="."]
+visible = false
+
+[node name="FireVfx2" parent="FireVFX" instance=ExtResource("4_koqcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111594, 0.117384, -0.211292)
+
+[node name="FireVfx3" parent="FireVFX" instance=ExtResource("4_koqcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0819848, 0.0690042, 1.57201)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.5
+
+[node name="Flammable" parent="." instance=ExtResource("3_utucm")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

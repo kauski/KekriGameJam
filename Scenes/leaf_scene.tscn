@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7mrpw8qnxcss"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3v7b"]
+
+[node name="LeafScene" type="Node3D"]
+transform = Transform3D(13.75, 0, 0, 0, 3.2, 0, 0, 0, 2.912, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+gravity_scale = 0.5
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_y3v7b")

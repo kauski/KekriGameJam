@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://defv68nuwhutn"]
+
+[ext_resource type="Shader" uid="uid://gmkaxnvnw8eg" path="res://Art/EnviroMaterials/SnowShader.tres" id="1_jowxk"]
+[ext_resource type="Texture2D" uid="uid://b6w8rorvlg0qw" path="res://Art/EnviroMaterials/pixelNoise.png" id="2_dp4rp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jowxk")
+shader_parameter/ColorParameter2 = Color(0.635294, 0.690196, 0.956863, 1)
+shader_parameter/ColorParameter = Color(0.909804, 1, 1, 1)
+shader_parameter/triplanar_scale = Vector3(100, 100, 100)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.55
+shader_parameter/TextureParameterTriplanar = ExtResource("2_dp4rp")

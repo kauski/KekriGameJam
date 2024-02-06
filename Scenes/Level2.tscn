@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy147pi012dni"]
+
+[ext_resource type="PackedScene" uid="uid://ce8grqbdhc84v" path="res://Scenes/kamiina.tscn" id="1_mle13"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6eab"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gi22"]
+
+[node name="Level2" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(14.8844, 0, 0, 0, 0.334533, 0, 0, 0, -10.9968, 0, 0, 0)
+mesh = SubResource("BoxMesh_g6eab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-14.8844, 0, 0, 0, -0.334533, 0, 0, 0, -10.9968, 0, 0, 0)
+shape = SubResource("BoxShape3D_7gi22")
+
+[node name="prop_kamiina" parent="." instance=ExtResource("1_mle13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="kamiina_Luukku01" parent="prop_kamiina" index="3"]
+transform = Transform3D(0.511353, -4.47039e-08, -0.859371, -8.74228e-08, -1, 0, -0.859371, 7.51286e-08, -0.511353, 1.19067, 4.89051, 1.98501)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.79287, 6.17471)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.749534, 0.661966, 0, -0.661966, 0.749534, 0, 13.3372, 10.1604)
+
+[editable path="prop_kamiina"]

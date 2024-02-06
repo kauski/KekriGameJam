@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b1nyk6fi75r35"]
+
+[ext_resource type="Shader" uid="uid://dllxfoqoh4pdd" path="res://Art/3Dmodels/VFX/firewallshader.tres" id="1_ho4ai"]
+[ext_resource type="Texture2D" uid="uid://dld2icsoyvdgc" path="res://Art/3Dmodels/VFX/Voronoi/Voronoi 5 - 128x128.png" id="2_jsy0r"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ho4ai")
+shader_parameter/Alphaclip = 11.925
+shader_parameter/Texture2DParameter = ExtResource("2_jsy0r")

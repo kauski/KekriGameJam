@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfkxrc72g4agk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d61xu"]
+direction = Vector3(0.29, 0.22, 0)
+gravity = Vector3(0, 9.8, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu6gl"]
+transparency = 1
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 0.0470588)
+rim = 0.0
+rim_tint = 1.0
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0c7qb"]
+lightmap_size_hint = Vector2i(6, 5)
+material = SubResource("StandardMaterial3D_pu6gl")
+size = Vector2(0.84, 0.795)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 498
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_d61xu")
+draw_pass_1 = SubResource("QuadMesh_0c7qb")
